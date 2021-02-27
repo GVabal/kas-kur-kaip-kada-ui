@@ -4,9 +4,10 @@ import {GamePageComponent} from './game-page/game-page.component';
 import {SentencePageComponent} from './sentence-page/sentence-page.component';
 
 const routes: Routes = [
-  { path: '/game', component: GamePageComponent, pathMatch: 'full' },
-  { path: '/sentences', component: SentencePageComponent, pathMatch: 'full' },
-  { path: '', redirectTo: '/game', pathMatch: 'full' },
+  { path: 'game', component: GamePageComponent},
+  { path: 'sentences', component: SentencePageComponent},
+  { path: '', component: GamePageComponent},
+  // { path: '', redirectTo: '/game', pathMatch: 'full' },
 ];
 
 @NgModule({
