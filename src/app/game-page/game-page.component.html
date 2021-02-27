@@ -1,0 +1,19 @@
+<input type="text" placeholder="Name" [disabled]="isLocked" [(ngModel)]="name">
+<input type="text" placeholder="gameId" [disabled]="isLocked" [(ngModel)]="gameId">
+<button mat-button (click)="toggleLock()" *ngIf="!isLocked">Lock</button>
+<button mat-button (click)="toggleLock()" *ngIf="isLocked">Unlock</button>
+<hr>
+<h1>{{ question }}</h1>
+<mat-form-field class="full-width">
+  <mat-label>Your text goes here</mat-label>
+  <input matInput [(ngModel)]="content" [disabled]="!isTimeToSubmit">
+</mat-form-field>
+<hr>
+<button mat-fab color="primary" (click)="submit(); isTimeToSubmit = false" [disabled]="!isTimeToSubmit">
+  <mat-icon>chat_bubble_outline</mat-icon>
+</button>
+<button mat-fab color="warn" (click)="updateGameState(); isTimeToSubmit = true" [disabled]="isTimeToSubmit">
+  <mat-icon>swap_calls</mat-icon>
+</button>
+<hr>
+<button *ngIf="!hasStarted" mat-button color="warn" (click)="updateGameState(); hasStarted = true">Begin</button>
