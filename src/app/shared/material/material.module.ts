@@ -22,24 +22,11 @@ import {MatDividerModule} from '@angular/material/divider';
 @NgModule({
   declarations: [],
   exports: [
-    MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule,
-    MatMenuModule,
-    MatSidenavModule,
     MatToolbarModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatGridListModule,
     MatButtonModule,
-    MatButtonToggleModule,
-    MatBadgeModule,
-    MatChipsModule,
-    MatIconModule,
-    MatRippleModule,
-    MatSnackBarModule,
-    MatTooltipModule,
+    MatIconModule
   ]
 })
 export class MaterialModule {

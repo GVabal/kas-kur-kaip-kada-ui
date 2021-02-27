@@ -1,11 +1,21 @@
-const express = require('express');
-const path = require('path');
+var express = require('express');
+var compression = require('compression');
+var PORT = process.env.PORT || 8080
 
-const app = express();
+var buildPath = 'dist/kkkk-ui'
 
-// Serve only the static files form the dist directory
-app.use(express.static('./dist/kkkk-ui'));
+// Initialize
+var app = express();
 
-app.get('/*', (req, res) =>
-  res.sendFile('index.html', {root: 'dist/kkkk-ui/'}),
-);
+// Serve static resources from 'build' folder
+app.use(express.static(buildPath));
+
+// Enable gzip response compression
+app.use(compression());
+
+// Otherwise serve index.html
+app.get('*', function (req, res) {
+  res.sendFile(__dirname + buildPath + "/index.html");
+});
+
+app.listen(PORT);
